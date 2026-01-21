@@ -3,11 +3,11 @@
 #include "Book.h"
 #include "Student.h"
 #include "Borrow.h"
-class Library {
+class Library{
 private:
 Book dsSach[100];
 Student dsSV[100];
-Borrow dsMuon[200];
+Borrow dsMuon[100];
 int SoLuongSach;
 int SoLuongSV;
 int SoLuongMuon;
@@ -27,6 +27,7 @@ public:
  void hienThiSV();
  void muonSach();
  void traSach();
+ void thongKeSachCuaSV();
  void thongKeMuon();
  void ghiFile();
  void docFile();

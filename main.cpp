@@ -29,7 +29,7 @@ int main(){
     lib.themSach();
     break;
    case 2:
-    cout<<"Chuc nang dang duoc cap nhat"<<endl;
+    lib.suaSach();
     break;
    case 3:
     lib.xoaSach();
@@ -38,7 +38,7 @@ int main(){
     lib.themSV();
     break;
    case 5:
-    cout<<"Chuc nang dang duoc cap nhat"<<endl;
+    lib.suaSV();
     break;
    case 6:
     lib.xoaSV();
@@ -52,8 +52,8 @@ int main(){
    case 9:
     lib.hienThiSach();
     break;
-   case 10:
-    cout<<"Chuc nang dang duoc cap nhat..."<<endl;
+  case 10:
+    lib.thongKeSachCuaSV();
     break;
    case 11:
     lib.thongKeMuon();

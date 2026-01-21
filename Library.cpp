@@ -43,6 +43,20 @@ void Library::themSach(){
  SoLuongSach++;
  ghiFile();
 }
+void Library::suaSach(){
+ int ma;
+ cout<<"Nhap ma sach can sua: ";
+ cin>>ma;
+ int viTri=timSachTheoMa(ma);
+ if(viTri==-1){
+  cout<<"Khong tim thay ma sach nay!"<<endl;
+  return;
+ }
+ cout<<"--- Nhap thong tin moi cho sach (Ma: "<<ma<<") ---"<<endl;
+ dsSach[viTri].nhap();
+ ghiFile();
+ cout<<"Cap nhat thong tin sach thanh cong!"<<endl;
+}
 void Library::xoaSach(){
  int ma;
  cout<<"Nhap ma sach can xoa: ";
@@ -63,13 +77,27 @@ void Library::xoaSach(){
  }
 }
 void Library::hienThiSach(){
- cout<<"\n--- DANH SACH SACH ---\n";
+ cout<<"  DANH SACH SACH  "<<endl;
  for(int i=0;i<SoLuongSach;i++) dsSach[i].xuat();
 }
 void Library::themSV(){
  dsSV[SoLuongSV].nhap();
  SoLuongSV++;
  ghiFile();
+}
+void Library::suaSV(){
+ int ma;
+ cout<<"Nhap ma sinh vien can sua: ";
+ cin>>ma;
+ int viTriSV=timSVTheoMa(ma);
+ if(viTriSV==-1){
+  cout<<"Khong tim thay sinh vien nay!"<<endl;
+  return;
+ }
+cout<<"   Nhap thong tin moi cho sinh vien (Khong sua thong tin muon)   "<<endl;
+ dsSV[viTriSV].nhap();
+ ghiFile();
+ cout<<"Cap nhat thong tin sinh vien thanh cong!"<<endl;
 }
 void Library::xoaSV(){
  int ma;
@@ -134,8 +162,32 @@ void Library::traSach(){
  ghiFile();
  cout<<"Tra sach thanh cong!"<<endl;
 }
+void Library::thongKeSachCuaSV(){
+ int ma;
+ cout<<"Nhap ma sinh vien can kiem tra: ";
+ cin>>ma;
+ int viTriSV=timSVTheoMa(ma);
+ if(viTriSV==-1){
+  cout<<"Sinh vien khong ton tai!"<<endl;
+  return;
+ }
+ cout<<"\n--- Danh sach sach sinh vien ["<<dsSV[viTriSV].getten()<<"] dang muon ---\n";
+ bool coMuon=false;
+ for(int i=0;i<SoLuongMuon;i++){
+  if(dsMuon[i].getmaSV()==ma){
+   int viTriS=timSachTheoMa(dsMuon[i].getmasach());
+   if(viTriS!=-1){
+    dsSach[viTriS].xuat();
+    coMuon=true;
+   }
+  }
+ }
+ if(!coMuon){
+  cout<<"Sinh vien nay hien khong muon cuon sach nao."<<endl;
+ }
+}
 void Library::thongKeMuon(){
- cout<<"\n--- THONG KE MUON SACH ---\n";
+ cout<<"  THONG KE MUON SACH  "<<endl;
  for(int i=0;i<SoLuongMuon;i++){
   int viTriSV=timSVTheoMa(dsMuon[i].getmaSV());
   int viTriS=timSachTheoMa(dsMuon[i].getmasach());
