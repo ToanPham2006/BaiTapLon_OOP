@@ -2,9 +2,9 @@
 #define BOOK_H
 #include <iostream>
 #include <fstream>
-#include <cstring>
+#include <string>
 using namespace std;
-class Book {
+class Book{
 private:
  int masach;
  char tensach[50];

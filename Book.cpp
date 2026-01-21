@@ -1,7 +1,7 @@
 #include "Book.h"
 #include <iostream>
 using namespace std;
-Book::Book() {
+Book::Book(){
  masach = 0;
  namXB = 0;
  tinhtrang = 0;
